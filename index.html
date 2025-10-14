@@ -21,18 +21,22 @@
             <nav class="navbar">
                 <a href="#">Inicio</a>
                 <a href="#menu">Cardápio</a>
-                 <a href="#about">Sobre</a>
+                <a href="#about">Sobre</a>
                 <a href="#review">Avaliações</a>
                 <a href="#address">Endereço</a>
+                <a href="pages/login.html">Login</a>
+                <a href="pages/signUp.html">Sign Up</a>
+                <a href="pages/logout.html">Logout</a>
             </nav>
             <div class="icons">
                 <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png"
                     alt="search--v1" />
                 <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png"
                     alt="shopping-cart" />
-                        <div id="theme-toggle-btn" class="theme-toggle-btn">
-                <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/crescent-moon.png" alt="Modo Escuro" id="theme-icon"/> 
-         </div>
+                <div id="theme-toggle-btn" class="theme-toggle-btn">
+                    <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/crescent-moon.png"
+                        alt="Modo Escuro" id="theme-icon" />
+                </div>
             </div>
         </section>
     </header>
@@ -130,7 +134,7 @@
                         alt="star-half-empty" />
                 </div>
             </div>
-             <div class="box">
+            <div class="box">
                 <img src="./" alt="comentario">
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur velit placeat debitis, quam
                     laudantium laborum eos. Odio commodi, corrupti id debitis architecto, eveniet quis eos optio natus,
@@ -149,7 +153,8 @@
                     <img width="20" height="20" src="https://img.icons8.com/ios-filled/30/ffffff/star-half-empty.png"
                         alt="star-half-empty" />
                 </div>
-            </div> <div class="box">
+            </div>
+            <div class="box">
                 <img src="./" alt="comentario">
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur velit placeat debitis, quam
                     laudantium laborum eos. Odio commodi, corrupti id debitis architecto, eveniet quis eos optio natus,
@@ -168,7 +173,8 @@
                     <img width="20" height="20" src="https://img.icons8.com/ios-filled/30/ffffff/star-half-empty.png"
                         alt="star-half-empty" />
                 </div>
-            </div> <div class="box">
+            </div>
+            <div class="box">
                 <img src="./" alt="comentario">
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur velit placeat debitis, quam
                     laudantium laborum eos. Odio commodi, corrupti id debitis architecto, eveniet quis eos optio natus,
@@ -192,22 +198,28 @@
     </section>
 
     <section class="address" id="address">
-<h2 class="title">Nosso <span>Endereço</span></h2>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.58095453499!2d-46.82528384999999!3d-23.430189650000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf02aa086509a7%3A0x560467f296a78df!2sColinas%20da%20Anhanguera%2C%20Santana%20de%20Parna%C3%ADba%20-%20SP%2C%2006537-075!5e0!3m2!1spt-BR!2sbr!4v1753209190475!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</section>
+        <h2 class="title">Nosso <span>Endereço</span></h2>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.58095453499!2d-46.82528384999999!3d-23.430189650000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf02aa086509a7%3A0x560467f296a78df!2sColinas%20da%20Anhanguera%2C%20Santana%20de%20Parna%C3%ADba%20-%20SP%2C%2006537-075!5e0!3m2!1spt-BR!2sbr!4v1753209190475!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
 
     <section class="footer">
         <p> Email: gmrestaurante@gmail.com </p>
         <p>Telefone: 11 97572-5228</p>
-     <div class="share">
-        <img width="30" height="30" src="https://img.icons8.com/ios-filled/70/ffffff/instagram-new--v1.png" alt="instagram-new--v1"/>
-    <img width="30" height="30" src="https://img.icons8.com/ios/70/ffffff/whatsapp.png" alt="whatsapp"/>
-    </div>
-       <p>&copy; 2024 Mateus Feitosa de Sousa Santos, Gabriel Luiz de Jesus Martins Lima e Daniel Silva da Rocha.</p>
-       <p>todos os direitos reservados</p>
+        <div class="share">
+            <img width="30" height="30" src="https://img.icons8.com/ios-filled/70/ffffff/instagram-new--v1.png"
+                alt="instagram-new--v1" />
+            <img width="30" height="30" src="https://img.icons8.com/ios/70/ffffff/whatsapp.png" alt="whatsapp" />
+        </div>
+        <p>&copy; 2024 Mateus Feitosa de Sousa Santos, Gabriel Luiz de Jesus Martins Lima e Daniel Silva da Rocha.</p>
+        <p>todos os direitos reservados</p>
     </section>
-    <script src="script.js"></script>
+    <script type="module" src="scripts/indexScript.js"></script>
+    <script type="module" src="scripts/supabaseConfig.js"></script>
 </body>
+
 </html>
 </body>
 
