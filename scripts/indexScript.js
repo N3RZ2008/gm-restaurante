@@ -1,10 +1,25 @@
+import { findOne } from "./database/useApi.js";
 import { supabase } from "./supabaseConfig.js";
+
+const loginLink = document.getElementById("loginLink")
+const signUpLink = document.getElementById("signUpLink")
+const logOutLink = document.getElementById("logOutLink")
+const managerLink = document.getElementById("managerLink")
 
 const { data: { session } } = await supabase.auth.getSession()
 
 if (session) {
+    loginLink.style.display = "none"
+    signUpLink.style.display = "none"
     console.log("Usuário logado:", session.user)
+
+    const databaseInfo = await findOne("users", session.user.id)
+    if (databaseInfo.role !== "manager") {
+        managerLink.display = "none"
+    }
 } else {
+    logOutLink.style.display = "none"
+    managerLink.display = "none"
     console.log("Nenhum usuário ativo")
 }
 
