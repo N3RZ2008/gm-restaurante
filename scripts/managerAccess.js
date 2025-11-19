@@ -10,8 +10,6 @@ function editUser(event, userId, userRole, newUserRole) {
         role: newUserRole
     }
 
-    console.log(typeof userId)
-
     updateOne("users", userId, dataInsert)
 }
 
