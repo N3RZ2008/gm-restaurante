@@ -4,19 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Data</title>
+    <title>Dados Pessoais</title>
+    
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../login.css"> 
 </head>
 
-<body>
-    <a href="../index.html">voltar</a>
-    <h1>Dados Pessoais</h1>
-    <form id="userData">
-        <input type="text" id="name" placeholder="Nome Completo" >
-        <input type="text" id="tel" placeholder="Telefone" >
-        <input type="text" id="cep" placeholder="CEP" >
-        <button type="submit">Enviar</button>
-    </form>
-    <p>inserir CSS depois</p>
-</body>
+<body class="login-page"> 
+    
+    <a href="../index.html" class="link-voltar">Voltar</a>
+    
+    <div class="login-container"> 
+        <h1>Dados Pessoais</h1>
+        <form id="userData">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Nome Completo" required>
+            </div>
+            <div class="input-group">
+                <input type="text" id="tel" placeholder="Telefone" required>
+            </div>
+            <div class="input-group">
+                <input type="text" id="cep" placeholder="CEP" required>
+            </div>
+            <button type="submit" class="btn-primario">Prosseguir para o Pagamento</button>
+        </form>
+    </div>
+    
+    </body>
 
 </html>

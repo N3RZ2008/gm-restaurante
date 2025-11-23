@@ -1,0 +1,52 @@
+
+/* Variáveis de Cores (Cores do Dark Mode do Index) */
+:root {
+    --cor-fundo: #121212;         /* Fundo geral escuro (color-bg) */
+    --cor-superficie: #1E1E1E;    /* Fundo de caixas, cards, etc. (color-surface) */
+    --cor-cabecalho-fundo: #1A1A1A; /* Fundo do cabeçalho (color-header-bg) */
+    
+    /* Cores de Branding */
+    --cor-primaria: #D2B48C;      /* Marrom claro/Bronze (color-primary) - Cor principal de destaque */
+    --cor-secundaria: #C0C0C0;    /* Cinza médio (color-secondary) - Cor de acento */
+    
+    /* Cores de Texto e Input */
+    --cor-texto-claro: #F8F8F8;   /* Texto principal claro (color-text) */
+    --cor-input-fundo: #2A2A2A;   /* Fundo de inputs (color-input-bg) */
+    --cor-white: #FFFFFF;         /* Branco puro (usado em ícones/pequenos textos) */
+
+    /* Bordas e Sombras */
+    --cor-borda: rgba(255, 255, 255, 0.1); /* Bordas suaves */
+    --sombra-caixa: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4);
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Mantenha a mesma fonte do site principal */
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+    font-size: 1.6rem; /* 16px, seguindo sua base de 1rem=10px */
+}
+
+/* Estilos de Botões Padrão (Usado em todo o site) */
+.btn-primario {
+    background-color: var(--cor-primaria);
+    color: #121212; /* Texto escuro no botão claro para melhor contraste */
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-primario:hover {
+    background-color: #B8A282; /* Tom mais escuro da cor primária para hover */
+}

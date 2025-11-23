@@ -5,17 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso do Gerente</title>
+    
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../manager.css">
 </head>
 
 <body>
-    <a href="../index.html">voltar</a>
-    <h1>Acesso do Gerente</h1>
-    <table id="userList">
-        <tr>
-            <th>User Email</th>
-        </tr>
-    </table>
-    <p>inserir CSS depois</p>
+    <a href="../index.html" class="link-voltar">Voltar</a>
+    
+    <div class="main-container"> 
+        <h1>Acesso do Gerente</h1>
+        
+        <table id="userList" class="data-table"> 
+            <thead>
+                <tr>
+                    <th>User Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>email.exemplo@restaurante.com</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
     <script type="module" src="../scripts/managerAccess.js"></script>
 </body>
 

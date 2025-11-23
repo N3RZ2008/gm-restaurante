@@ -14,6 +14,28 @@ if (session) {
     signUpLink.style.display = "none"
     console.log("Usuário logado:", session.user)
 
+    if (logOutLink) {
+        logOutLink.addEventListener("click", async function(event) {
+            event.preventDefault(); // Impede a navegação imediata para logOut.html
+
+            const confirmacao = confirm("Você tem certeza que deseja sair da sua conta?");
+
+            if (confirmacao) {
+                // 1. Executa a função de logout do Supabase
+                const { error } = await supabase.auth.signOut();
+                
+                if (error) {
+                    console.error("Erro ao sair:", error.message);
+                    alert("Ocorreu um erro ao tentar sair.");
+                } else {
+                    console.log("Logout bem-sucedido.");
+                    // 2. Redireciona o usuário para atualizar a interface (index.html)
+                    window.location.href = "index.html"; 
+                }
+            }
+        });
+    }
+
     userOrdersLink.addEventListener("click", function() {
         window.location.href = "pages/userOrders.html"
     })

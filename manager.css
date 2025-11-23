@@ -1,0 +1,80 @@
+/*
+ * estilo-gerente.css - Estilos para a área de Dashboard e Gerenciamento
+ * VERSÃO SIMPLES: Estiliza apenas o título, tabela e centraliza o bloco principal.
+ *
+ * NOTA: Este arquivo deve ser carregado APÓS o global.css.
+ */
+
+/* 1. LAYOUT PRINCIPAL (Centralização) */
+body {
+    /* O estilo-base/global.css já define o fundo e cores de texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    padding-top: 50px; /* Espaço do topo */
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1000px; /* Limita a largura do conteúdo para evitar esticar demais */
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
+/* 2. ESTILO DO LINK "VOLTAR" */
+.link-voltar {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: var(--cor-secundaria); 
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.link-voltar:hover {
+    color: var(--cor-primaria);
+}
+
+/* 3. TÍTULO */
+h1 {
+    color: var(--cor-texto-claro);
+    margin-bottom: 25px;
+    font-size: 32px;
+    text-align: left; /* Alinha o título à esquerda do bloco centralizado */
+}
+
+/* 4. ESTILIZAÇÃO DA TABELA DE DADOS */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--cor-superficie); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.data-table th, .data-table td {
+    border: 1px solid var(--cor-borda);
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: var(--cor-cabecalho-fundo);
+    color: var(--cor-primaria);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Linhas Alternadas */
+.data-table tbody tr:nth-child(even) {
+    background-color: #252525;
+}
+
+.data-table tbody tr:hover {
+    background-color: #383838;
+    cursor: pointer;
+}
