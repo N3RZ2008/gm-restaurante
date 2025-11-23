@@ -1,0 +1,115 @@
+/*
+ * estilo-pedidos.css - Estilos para a página "Meus Pedidos" (Histórico do Cliente)
+ * VERSÃO TABELA.
+ */
+
+/* 1. LAYOUT PRINCIPAL (Centralização) */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding-top: 50px; 
+}
+
+.main-container {
+    width: 100%;
+    max-width: 900px; /* Largura ideal para a tabela */
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
+/* 2. ESTILO DO LINK "VOLTAR" */
+.link-voltar {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: var(--cor-secundaria); 
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.link-voltar:hover {
+    color: var(--cor-primaria);
+}
+
+/* 3. TÍTULO */
+h1 {
+    color: var(--cor-texto-claro);
+    margin-bottom: 25px;
+    font-size: 32px;
+    text-align: left;
+}
+
+/* 4. ESTILIZAÇÃO DA TABELA DE PEDIDOS (Reutiliza o estilo 'data-table') */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--cor-superficie); /* Fundo escuro sutil */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.data-table th, .data-table td {
+    border: 1px solid var(--cor-borda);
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: var(--cor-cabecalho-fundo);
+    color: var(--cor-primaria);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Alinhamento Específico */
+.data-table td:nth-child(1), /* Nº */
+.data-table td:nth-child(4)  /* Preço */ {
+    text-align: center;
+}
+
+/* Linhas Alternadas */
+.data-table tbody tr:nth-child(even) {
+    background-color: #252525;
+}
+
+.data-table tbody tr:hover {
+    background-color: #383838;
+}
+
+/* 5. ESTILOS DE STATUS DENTRO DA TABELA */
+.data-table .pedido-status {
+    /* Garante que o span que envolve o status tenha estilo visual */
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--cor-fundo); /* Texto escuro no fundo colorido */
+    text-align: center;
+    width: 90px; /* Largura fixa para manter o alinhamento */
+}
+
+.status-entregue {
+    background-color: #4CAF50; /* Verde */
+}
+
+.status-preparacao {
+    background-color: var(--cor-primaria); /* Bronze */
+    color: var(--cor-fundo);
+}
+
+.status-cancelado {
+    background-color: #FF6B6B; /* Vermelho */
+}
+
+/* 6. COR DA LINHA TOTAL (Preço) */
+.data-table td:nth-child(4) {
+    font-weight: bold;
+    color: var(--cor-primaria);
+}

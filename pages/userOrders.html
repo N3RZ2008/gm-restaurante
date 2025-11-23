@@ -5,20 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Pedidos</title>
+    
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../orders.css"> 
 </head>
 
 <body>
-    <a href="../index.html">voltar</a>
-    <h1>Meus Pedidos</h1>
-    <table id="userList">
-        <tr>
-            <th>Nº</th>
-            <th>Pedido</th>
-            <th>Status</th>
-            <th>Preço</th>
-        </tr>
-    </table>
-    <p>inserir CSS depois</p>
+    <a href="../index.html" class="link-voltar">Voltar</a>
+    
+    <div class="main-container"> 
+        <h1>Meus Pedidos</h1>
+        
+        <table id="userList" class="data-table"> 
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>Pedido</th>
+                    <th>Status</th>
+                    <th>Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#1</td>
+                    <td>2x Hamburguer X</td>
+                    <td><span class="status-entregue">Entregue</span></td>
+                    <td>R$ 75,00</td>
+                </tr>
+                 <tr>
+                    <td>#2</td>
+                    <td>1x Pizza Marguerita</td>
+                    <td><span class="status-preparacao">Em Preparação</span></td>
+                    <td>R$ 49,90</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
     <script type="module" src="../scripts/userOrders.js"></script>
 </body>
 

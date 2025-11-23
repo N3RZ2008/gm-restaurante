@@ -1,0 +1,81 @@
+/*
+ * estilo-login.css
+ * Estilos específicos para a página de Login e Cadastro de Clientes (Tema Escuro)
+ *
+ * NOTA: Este arquivo deve ser carregado APÓS o estilo-base.css.
+ */
+
+/* 1. LAYOUT PRINCIPAL E CENTRALIZAÇÃO */
+body.login-page {
+    /* O estilo-base.css já define o fundo como var(--cor-fundo) #121212 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 2. CONTAINER DA CAIXA DE LOGIN */
+.login-container {
+    background-color: var(--cor-superficie); /* #1E1E1E */
+    padding: 4rem;
+    border-radius: 1rem;
+    box-shadow: var(--sombra-caixa);
+    width: 100%;
+    max-width: 40rem; /* Limite de largura para a caixa de login */
+    text-align: center;
+}
+
+/* 3. ESTILO DO TÍTULO */
+.login-container h1 {
+    color: var(--cor-primaria); /* #D2B48C (Bronze) */
+    margin-bottom: 2.5rem;
+    font-size: 3rem;
+}
+
+/* 4. GRUPO DE INPUTS */
+.input-group {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* 5. ESTILO DOS INPUTS */
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="email"] {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    background-color: var(--cor-input-fundo); /* #2A2A2A */
+    color: var(--cor-texto-claro); /* #F8F8F8 */
+}
+
+/* Estilo para o texto de dica dentro do campo */
+.input-group input::placeholder {
+    color: #888; 
+}
+
+/* 6. ESTILO DO BOTÃO DE ENTRAR */
+.login-container .btn-primario {
+    width: 100%; /* Faz o botão ocupar a largura total do container */
+    margin-top: 1.5rem;
+    /* O restante do estilo do botão vem do estilo-base.css */
+}
+
+/* 7. ESTILO DO LINK 'VOLTAR' */
+.link-voltar {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: var(--cor-texto-claro); /* #F8F8F8 */
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: color 0.3s;
+}
+
+.link-voltar:hover {
+    color: var(--cor-primaria); /* #D2B48C */
+}

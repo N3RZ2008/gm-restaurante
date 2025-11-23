@@ -5,17 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../login.css">
 </head>
 
-<body>
-    <a href="../index.html">voltar</a>
-    <h1>Cadastro</h1>
-    <form id="signUpForm">
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="password" placeholder="Senha" required>
-        <button type="submit">Cadastrar</button>
-    </form>
-    <p>inserir CSS depois</p>
+<body class="login-page"> 
+    
+    <a href="../index.html" class="link-voltar">Voltar</a>
+    
+    <div class="login-container"> 
+        <h1>Cadastro</h1>
+        <form id="signUpForm">
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Senha" required>
+            </div>
+            <button type="submit" class="btn-primario">Cadastrar</button>
+        </form>
+    </div>
+    
     <script type="module" src="../scripts/supabaseSignUp.js"></script>
 </body>
 
