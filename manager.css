@@ -69,12 +69,26 @@ h1 {
     font-weight: bold;
 }
 
+.data-table select {
+    width: 100%;
+    color: white;
+    background-color: var(--cor-superficie);
+}
+
+.data-table button {
+    border: solid 1px white;
+    width: 100%;
+    color: white;
+    background-color: var(--cor-superficie);
+    cursor: pointer;
+}
+
 /* Linhas Alternadas */
 .data-table tbody tr:nth-child(even) {
     background-color: #252525;
 }
 
-.data-table tbody tr:hover {
+/* .data-table tbody tr:hover {
     background-color: #383838;
     cursor: pointer;
-}
+} */

@@ -17,6 +17,6 @@ form.addEventListener("submit", async (e) => {
         alert("Erro: " + error.message)
     } else {
         alert("Login bem-sucedido!")
-        console.log("Sessão:", data.session)
+        window.location.href = "../index.html"
     }
 })

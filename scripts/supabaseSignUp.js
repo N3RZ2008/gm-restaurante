@@ -23,9 +23,9 @@ form.addEventListener("submit", async (e) => {
             email: data.user.email,
             role: "user"
         }
-        insertOne("users", dataInsert)
+        await insertOne("users", dataInsert)
 
         alert("Cadastro bem-sucedido!")
-        console.log("Sessão:", data.session)
+        window.location.href = "../index.html"
     }
 })

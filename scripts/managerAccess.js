@@ -11,6 +11,7 @@ function editUser(event, userId, userRole, newUserRole) {
     }
 
     updateOne("users", userId, dataInsert)
+    alert("Editado com sucesso!")
 }
 
 for (let i = 0; i < users.length; i++) {
@@ -24,6 +25,7 @@ for (let i = 0; i < users.length; i++) {
     const optionUser = new Option("User", "user")
     const optionWorker = new Option("Worker", "worker")
     const optionManager = new Option("Manager", "manager")
+    optionManager.disabled = true
     userRoleInput.add(optionUser)
     userRoleInput.add(optionWorker)
     userRoleInput.add(optionManager)

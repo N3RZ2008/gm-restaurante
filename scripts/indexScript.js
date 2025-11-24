@@ -5,6 +5,7 @@ const loginLink = document.getElementById("loginLink")
 const signUpLink = document.getElementById("signUpLink")
 const logOutLink = document.getElementById("logOutLink")
 const managerLink = document.getElementById("managerLink")
+const workerLink = document.getElementById("workerLink")
 const userOrdersLink = document.getElementById("userOrdersLink")
 
 const { data: { session } } = await supabase.auth.getSession()
@@ -44,9 +45,13 @@ if (session) {
     if (databaseInfo.role !== "manager") {
         managerLink.style.display = "none"
     }
+    if (databaseInfo.role === "user") {
+        workerLink.style.display = "none"
+    }
 } else {
     logOutLink.style.display = "none"
     managerLink.style.display = "none"
+    workerLink.style.display = "none"
     console.log("Nenhum usuário ativo")
 }
 
