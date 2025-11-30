@@ -1,5 +1,5 @@
-import { findOne } from "./database/useApi.js";
-import { supabase } from "./supabaseConfig.js";
+import { findAll, findOne, insertOne } from "./database/useApi.js"
+import { supabase } from "./supabaseConfig.js"
 
 const loginLink = document.getElementById("loginLink")
 const signUpLink = document.getElementById("signUpLink")
@@ -17,24 +17,22 @@ if (session) {
 
     if (logOutLink) {
         logOutLink.addEventListener("click", async function(event) {
-            event.preventDefault(); // Impede a navegação imediata para logOut.html
+            event.preventDefault()
 
-            const confirmacao = confirm("Você tem certeza que deseja sair da sua conta?");
+            const confirmacao = confirm("Você tem certeza que deseja sair da sua conta?")
 
             if (confirmacao) {
-                // 1. Executa a função de logout do Supabase
-                const { error } = await supabase.auth.signOut();
+                const { error } = await supabase.auth.signOut()
                 
                 if (error) {
-                    console.error("Erro ao sair:", error.message);
-                    alert("Ocorreu um erro ao tentar sair.");
+                    console.error("Erro ao sair:", error.message)
+                    alert("Ocorreu um erro ao tentar sair.")
                 } else {
-                    console.log("Logout bem-sucedido.");
-                    // 2. Redireciona o usuário para atualizar a interface (index.html)
-                    window.location.href = "index.html"; 
+                    console.log("Logout bem-sucedido.")
+                    window.location.href = "index.html" 
                 }
             }
-        });
+        })
     }
 
     userOrdersLink.addEventListener("click", function() {
@@ -55,54 +53,113 @@ if (session) {
     console.log("Nenhum usuário ativo")
 }
 
-const themeToggleBtn = document.getElementById('theme-toggle-btn');
-const themeIcon = document.getElementById('theme-icon'); // Seleciona a imagem do ícone pelo ID
-const body = document.body;
+const themeToggleBtn = document.getElementById('theme-toggle-btn')
+const themeIcon = document.getElementById('theme-icon')
+const body = document.body
 
-const sunIconUrl = "https://img.icons8.com/ios-filled/50/sun--v1.png";
-const moonIconUrl = "https://img.icons8.com/ios-filled/50/crescent-moon.png";
+const sunIconUrl = "https://img.icons8.com/ios-filled/50/sun--v1.png"
+const moonIconUrl = "https://img.icons8.com/ios-filled/50/crescent-moon.png"
 
-// Função para aplicar o tema salvo
 function applySavedTheme() {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem('theme')
     if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        if (themeIcon) { // Garante que o ícone existe antes de tentar mudar
-            themeIcon.src = sunIconUrl;
-            themeIcon.alt = 'Modo Claro';
+        body.classList.add('dark-mode')
+        if (themeIcon) {
+            themeIcon.src = sunIconUrl
+            themeIcon.alt = 'Modo Claro'
         }
     } else {
-        body.classList.remove('dark-mode');
-        if (themeIcon) { // Garante que o ícone existe antes de tentar mudar
-            themeIcon.src = moonIconUrl;
-            themeIcon.alt = 'Modo Escuro';
+        body.classList.remove('dark-mode')
+        if (themeIcon) {
+            themeIcon.src = moonIconUrl
+            themeIcon.alt = 'Modo Escuro'
         }
     }
 }
 
-// Aplica o tema salvo assim que a página carrega
-applySavedTheme();
+applySavedTheme()
 
-// Listener de clique para alternar o tema
-if (themeToggleBtn) { // Garante que o botão de toggle existe
+if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
+        body.classList.toggle('dark-mode')
 
         if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
+            localStorage.setItem('theme', 'dark')
             if (themeIcon) {
-                themeIcon.src = sunIconUrl;
-                themeIcon.alt = 'Modo Claro';
+                themeIcon.src = sunIconUrl
+                themeIcon.alt = 'Modo Claro'
             }
         } else {
-            localStorage.setItem('theme', 'light');
+            localStorage.setItem('theme', 'light')
             if (themeIcon) {
-                themeIcon.src = moonIconUrl;
-                themeIcon.alt = 'Modo Escuro';
+                themeIcon.src = moonIconUrl
+                themeIcon.alt = 'Modo Escuro'
             }
         }
-    });
+    })
 }
 
-// Opcional: Implementar a lógica do search-btn e cart-btn aqui, se você tiver
-// (Mantenha seu código existente para esses botões)
+async function addToCart(id) {
+    const orderList = await findAll("orders")
+    const orderNumber = orderList.length
+    const orderChoices = [
+        {
+            "number": orderNumber,
+            "userId": session.user.id,
+            "order": "Espaguete",
+            "price": 35,
+            "status": "Pendente"
+        },
+        {
+            "number": orderNumber,
+            "userId": session.user.id,
+            "order": "Lasanha A Bolonhesa",
+            "price": 42.99,
+            "status": "Pendente"
+        },
+        {
+            "number": orderNumber,
+            "userId": session.user.id,
+            "order": "Risoto",
+            "price": 35,
+            "status": "Pendente"
+        },
+        {
+            "number": orderNumber,
+            "userId": session.user.id,
+            "order": "Torta De Limão",
+            "price": 15.99,
+            "status": "Pendente"
+        },
+        {
+            "number": orderNumber,
+            "userId": session.user.id,
+            "order": "Torta Salgada",
+            "price": 15.99,
+            "status": "Pendente"
+        },
+        {
+            "number": orderNumber,
+            "userId": session.user.id,
+            "order": "Feijoada",
+            "price": 48,
+            "status": "Pendente"
+        }
+    ]
+
+    await insertOne("orders", orderChoices[id])
+    alert("Pedido adicionado com sucesso!")
+}
+
+const button1 = document.getElementById("button1")
+button1.addEventListener("click", () => { addToCart(0) })
+const button2 = document.getElementById("button2")
+button2.addEventListener("click", () => { addToCart(1) })
+const button3 = document.getElementById("button3")
+button3.addEventListener("click", () => { addToCart(2) })
+const button4 = document.getElementById("button4")
+button4.addEventListener("click", () => { addToCart(3) })
+const button5 = document.getElementById("button5")
+button5.addEventListener("click", () => { addToCart(4) })
+const button6 = document.getElementById("button6")
+button6.addEventListener("click", () => { addToCart(5) })

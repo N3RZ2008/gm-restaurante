@@ -1,6 +1,16 @@
 import { findAll } from "./database/useApi.js";
+import { supabase } from "./supabaseConfig.js"
 
-const orders = await findAll("orders")
+const { data: { session } } = await supabase.auth.getSession()
+
+if(!session) {
+    window.location.href = "../index.html"
+}
+
+const userId = session.user.id
+
+const unfilteredOrders = await findAll("orders")
+const orders = unfilteredOrders.filter(order => order.userId === userId)
 const orderList = document.getElementById("userList")
 
 console.log(orders)

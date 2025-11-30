@@ -66,12 +66,6 @@ h1 {
     font-weight: bold;
 }
 
-/* Alinhamento Específico */
-.data-table td:nth-child(1), /* Nº */
-.data-table td:nth-child(4)  /* Preço */ {
-    text-align: center;
-}
-
 /* Linhas Alternadas */
 .data-table tbody tr:nth-child(even) {
     background-color: #252525;
