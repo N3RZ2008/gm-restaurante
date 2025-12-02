@@ -11,7 +11,7 @@ let allOrdersLength = 0
 async function loadOrders() {
     const allOrders = await findAll("orders")
     allOrdersLength = allOrders.length
-    finishOrderButton.textContent = "Finalizar Compra"
+    finishOrderButton.textContent = "Confirmar Dados"
     finishOrderButton.addEventListener("click", () => { finishOrder() })
 }
 loadOrders()
