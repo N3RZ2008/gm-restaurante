@@ -1,4 +1,4 @@
-import { findAll, findOne, insertOne } from "./database/useApi.js"
+import { findOne } from "./database/useApi.js"
 import { supabase } from "./supabaseConfig.js"
 
 const loginLink = document.getElementById("loginLink")
@@ -6,6 +6,7 @@ const signUpLink = document.getElementById("signUpLink")
 const logOutLink = document.getElementById("logOutLink")
 const managerLink = document.getElementById("managerLink")
 const workerLink = document.getElementById("workerLink")
+const cartLink = document.getElementById("cartLink")
 const userOrdersLink = document.getElementById("userOrdersLink")
 
 const { data: { session } } = await supabase.auth.getSession()
@@ -34,8 +35,12 @@ if (session) {
         })
     }
 
-    userOrdersLink.addEventListener("click", function() {
+    cartLink.addEventListener("click", function() {
         window.location.href = "pages/cart.html"
+    })
+
+    userOrdersLink.addEventListener("click", function() {
+        window.location.href = "pages/userOrders.html"
     })
 
     const databaseInfo = await findOne("users", session.user.id)

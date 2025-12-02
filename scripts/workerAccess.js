@@ -1,4 +1,4 @@
-import { findAll, updateOne } from "./database/useApi.js";
+import { findAll, findOne, updateOne } from "./database/useApi.js";
 import { supabase } from "./supabaseConfig.js";
 
 const { data: { session } } = await supabase.auth.getSession()
@@ -37,7 +37,7 @@ for (let i = 0; i < orders.length; i++) {
     orderNumber.textContent = orders[i].number
     const orderContent = document.createElement("td")
     orderContent.textContent = orders[i].order
-    
+
     const orderStatus = document.createElement("td")
     const orderStatusInput = document.createElement("select")
     const optionPendente = new Option("Pendente", "Pendente")
@@ -49,14 +49,14 @@ for (let i = 0; i < orders.length; i++) {
     orderStatusInput.add(optionCancelado)
     orderStatusInput.value = orders[i].status
     orderStatus.appendChild(orderStatusInput)
-    
+
     const orderPrice = document.createElement("td")
     orderPrice.textContent = `R$${orders[i].price.toFixed(2)}`
 
     const orderEdit = document.createElement("td")
     const orderEditButton = document.createElement("button")
     orderEditButton.textContent = "Edit"
-    orderEditButton.addEventListener("click", function(event) {
+    orderEditButton.addEventListener("click", function (event) {
         editOrder(event, orders[i].number, orders[i].status, orderStatusInput.value)
     })
     orderEdit.appendChild(orderEditButton)

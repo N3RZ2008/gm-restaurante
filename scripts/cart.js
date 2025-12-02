@@ -77,4 +77,8 @@ async function finishOrder() {
     }
 
     alert("Compra finalizada com sucesso!")
+    sessionStorage.setItem("orderChoices", [])
+    while (orderList.children.length > 1) {
+        orderList.removeChild(orderList.lastChild)
+    }
 }
