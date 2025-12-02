@@ -1,4 +1,20 @@
 import { findAll, updateOne } from "./database/useApi.js";
+import { supabase } from "./supabaseConfig.js";
+
+const { data: { session } } = await supabase.auth.getSession()
+
+async function verifyRole() {
+    try {
+        const userSelected = await findOne("users", session.user.id)
+        if (userSelected.role === "user") {
+            window.location.href = "../index.html"
+        }
+    } catch (error) {
+        window.location.href = "../index.html"
+    }
+
+}
+verifyRole()
 
 const orders = await findAll("orders")
 const orderList = document.getElementById("orderList")

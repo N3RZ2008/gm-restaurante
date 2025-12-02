@@ -140,9 +140,8 @@ section {
     height: 4rem; 
 }
 
-/* Menu de Navegação - Escondido no mobile */
-.navbar {
-    display: none; 
+.aLink {
+    display: none;
 }
 
 .icons {

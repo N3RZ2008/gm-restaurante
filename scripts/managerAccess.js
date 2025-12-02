@@ -1,4 +1,20 @@
-import { findAll, updateOne } from "./database/useApi.js";
+import { findAll, findOne, updateOne } from "./database/useApi.js";
+import { supabase } from "./supabaseConfig.js";
+
+const { data: { session } } = await supabase.auth.getSession()
+
+async function verifyRole() {
+    try {
+        const userSelected = await findOne("users", session.user.id)
+        if (userSelected.role !== "manager") {
+            window.location.href = "../index.html"
+        }
+    } catch (error) {
+        window.location.href = "../index.html"
+    }
+
+}
+verifyRole()
 
 const users = await findAll("users")
 const userList = document.getElementById("userList")
@@ -36,7 +52,7 @@ for (let i = 0; i < users.length; i++) {
     const userEdit = document.createElement("td")
     const userEditButton = document.createElement("button")
     userEditButton.textContent = "Edit"
-    userEditButton.addEventListener("click", function(event) {
+    userEditButton.addEventListener("click", function (event) {
         editUser(event, users[i].userId, users[i].role, userRoleInput.value)
     })
     userEdit.appendChild(userEditButton)

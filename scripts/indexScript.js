@@ -11,8 +11,7 @@ const userOrdersLink = document.getElementById("userOrdersLink")
 const { data: { session } } = await supabase.auth.getSession()
 
 if (session) {
-    loginLink.style.display = "none"
-    signUpLink.style.display = "none"
+    logOutLink.style.display = "initial"
     console.log("Usuário logado:", session.user)
 
     if (logOutLink) {
@@ -40,16 +39,15 @@ if (session) {
     })
 
     const databaseInfo = await findOne("users", session.user.id)
-    if (databaseInfo.role !== "manager") {
-        managerLink.style.display = "none"
+    if (databaseInfo.role === "manager") {
+        managerLink.style.display = "initial"
     }
-    if (databaseInfo.role === "user") {
-        workerLink.style.display = "none"
+    if (databaseInfo.role !== "user") {
+        workerLink.style.display = "initial"
     }
 } else {
-    logOutLink.style.display = "none"
-    managerLink.style.display = "none"
-    workerLink.style.display = "none"
+    loginLink.style.display = "initial"
+    signUpLink.style.display = "initial"
     console.log("Nenhum usuário ativo")
 }
 
