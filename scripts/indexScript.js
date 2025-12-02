@@ -36,7 +36,7 @@ if (session) {
     }
 
     userOrdersLink.addEventListener("click", function() {
-        window.location.href = "pages/userOrders.html"
+        window.location.href = "pages/cart.html"
     })
 
     const databaseInfo = await findOne("users", session.user.id)
@@ -99,56 +99,13 @@ if (themeToggleBtn) {
     })
 }
 
-async function addToCart(id) {
-    const orderList = await findAll("orders")
-    const orderNumber = orderList.length
-    const orderChoices = [
-        {
-            "number": orderNumber,
-            "userId": session.user.id,
-            "order": "Espaguete",
-            "price": 35,
-            "status": "Pendente"
-        },
-        {
-            "number": orderNumber,
-            "userId": session.user.id,
-            "order": "Lasanha A Bolonhesa",
-            "price": 42.99,
-            "status": "Pendente"
-        },
-        {
-            "number": orderNumber,
-            "userId": session.user.id,
-            "order": "Risoto",
-            "price": 35,
-            "status": "Pendente"
-        },
-        {
-            "number": orderNumber,
-            "userId": session.user.id,
-            "order": "Torta De Limão",
-            "price": 15.99,
-            "status": "Pendente"
-        },
-        {
-            "number": orderNumber,
-            "userId": session.user.id,
-            "order": "Torta Salgada",
-            "price": 15.99,
-            "status": "Pendente"
-        },
-        {
-            "number": orderNumber,
-            "userId": session.user.id,
-            "order": "Feijoada",
-            "price": 48,
-            "status": "Pendente"
-        }
-    ]
+let orderChoices = []
 
-    await insertOne("orders", orderChoices[id])
+function addToCart(id) {
+    orderChoices.push(id)
+    sessionStorage.setItem("orderChoices", JSON.stringify(orderChoices))
     alert("Pedido adicionado com sucesso!")
+    console.log(JSON.parse(sessionStorage.getItem("orderChoices")))
 }
 
 const button1 = document.getElementById("button1")

@@ -11,7 +11,7 @@ const userId = session.user.id
 
 const unfilteredOrders = await findAll("orders")
 const orders = unfilteredOrders.filter(order => order.userId === userId)
-const orderList = document.getElementById("userList")
+const orderList = document.getElementById("orderList")
 
 console.log(orders)
 
