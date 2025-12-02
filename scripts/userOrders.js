@@ -3,7 +3,7 @@ import { supabase } from "./supabaseConfig.js"
 
 const { data: { session } } = await supabase.auth.getSession()
 
-if(!session) {
+if (!session) {
     window.location.href = "../index.html"
 }
 
@@ -25,7 +25,10 @@ for (let i = 0; i < orders.length; i++) {
     const orderStatus = document.createElement("td")
     orderStatus.textContent = orders[i].status
     const orderPrice = document.createElement("td")
-    orderPrice.textContent = `R$${orders[i].price.toFixed(2)}`
+    orderPrice.textContent = `R$${orders[i].price.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    })}`
 
     orderRow.appendChild(orderNumber)
     orderRow.appendChild(orderContent)

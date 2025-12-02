@@ -55,7 +55,7 @@ for (let i = 0; i < orders.length; i++) {
 
     const orderEdit = document.createElement("td")
     const orderEditButton = document.createElement("button")
-    orderEditButton.textContent = "Edit"
+    orderEditButton.textContent = "Editar"
     orderEditButton.addEventListener("click", function (event) {
         editOrder(event, orders[i].number, orders[i].status, orderStatusInput.value)
     })
