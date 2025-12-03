@@ -75,6 +75,14 @@ h1 {
     background-color: #383838;
 }
 
+.button {
+    padding: 3px;
+    border: solid 1px white;
+    color: white;
+    background-color: var(--cor-superficie);
+    cursor: pointer;
+}
+
 /* 5. ESTILOS DE STATUS DENTRO DA TABELA */
 .data-table .pedido-status {
     /* Garante que o span que envolve o status tenha estilo visual */
