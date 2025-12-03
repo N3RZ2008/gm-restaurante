@@ -8,6 +8,7 @@ const managerLink = document.getElementById("managerLink")
 const workerLink = document.getElementById("workerLink")
 const cartLink = document.getElementById("cartLink")
 const userOrdersLink = document.getElementById("userOrdersLink")
+const orderConfigLink = document.getElementById("orderConfigLink")
 
 const { data: { session } } = await supabase.auth.getSession()
 
@@ -49,6 +50,7 @@ if (session) {
     }
     if (databaseInfo.role !== "user") {
         workerLink.style.display = "initial"
+        orderConfigLink.style.display = "initial"
     }
 } else {
     loginLink.style.display = "initial"
@@ -155,16 +157,3 @@ function addToCart(id) {
     alert("Pedido adicionado com sucesso!")
     console.log(JSON.parse(sessionStorage.getItem("orderChoices")))
 }
-
-// const button1 = document.getElementById("button1")
-// button1.addEventListener("click", () => { addToCart(0) })
-// const button2 = document.getElementById("button2")
-// button2.addEventListener("click", () => { addToCart(1) })
-// const button3 = document.getElementById("button3")
-// button3.addEventListener("click", () => { addToCart(2) })
-// const button4 = document.getElementById("button4")
-// button4.addEventListener("click", () => { addToCart(3) })
-// const button5 = document.getElementById("button5")
-// button5.addEventListener("click", () => { addToCart(4) })
-// const button6 = document.getElementById("button6")
-// button6.addEventListener("click", () => { addToCart(5) })

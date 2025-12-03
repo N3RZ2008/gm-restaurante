@@ -72,12 +72,23 @@ h1 {
 .data-table select {
     width: 100%;
     color: white;
+    border: solid 1px white;
     background-color: var(--cor-superficie);
 }
 
-.data-table button {
+.data-table button,
+.data-table input {
+    padding: 3px;
     border: solid 1px white;
     width: 100%;
+    color: white;
+    background-color: var(--cor-superficie);
+    cursor: pointer;
+}
+
+.addOrderButton {
+    padding: 3px;
+    border: solid 1px white;
     color: white;
     background-color: var(--cor-superficie);
     cursor: pointer;

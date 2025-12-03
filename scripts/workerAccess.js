@@ -23,10 +23,10 @@ function editOrder(event, orderNumber, orderStatus, newOrderStatus) {
     if (orderStatus === newOrderStatus) return
 
     const dataInsert = {
-        role: newOrderStatus
+        status: newOrderStatus
     }
 
-    updateOne("users", orderNumber, dataInsert)
+    updateOne("orders", orderNumber, dataInsert)
     alert("Editado com sucesso!")
 }
 
@@ -51,7 +51,10 @@ for (let i = 0; i < orders.length; i++) {
     orderStatus.appendChild(orderStatusInput)
 
     const orderPrice = document.createElement("td")
-    orderPrice.textContent = `R$${orders[i].price.toFixed(2)}`
+    orderPrice.textContent = `R$${orders[i].price.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    })}`
 
     const orderEdit = document.createElement("td")
     const orderEditButton = document.createElement("button")
