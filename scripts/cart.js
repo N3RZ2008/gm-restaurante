@@ -13,7 +13,7 @@ async function loadOrders() {
     const allOrders = await findAll("orders")
     allOrdersLength = allOrders.length
     orderConfig = await findAll("orderConfig")
-    finishOrderButton.textContent = "Confirmar Dados"
+    finishOrderButton.textContent = "Finalizar Compra"
     finishOrderButton.addEventListener("click", () => { finishOrder() })
 
     for (let i = 0; i < orders.length; i++) {
