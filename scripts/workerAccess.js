@@ -35,6 +35,8 @@ for (let i = 0; i < orders.length; i++) {
 
     const orderNumber = document.createElement("td")
     orderNumber.textContent = orders[i].number
+    const orderUserEmail = document.createElement("td")
+    orderUserEmail.textContent = orders[i].userEmail
     const orderContent = document.createElement("td")
     orderContent.textContent = orders[i].order
 
@@ -65,6 +67,7 @@ for (let i = 0; i < orders.length; i++) {
     orderEdit.appendChild(orderEditButton)
 
     orderRow.appendChild(orderNumber)
+    orderRow.appendChild(orderUserEmail)
     orderRow.appendChild(orderContent)
     orderRow.appendChild(orderStatus)
     orderRow.appendChild(orderPrice)

@@ -70,6 +70,7 @@ async function finishOrder() {
         await insertOne("orders", {
             "number": allOrdersLength + i,
             "userId": session.user.id,
+            "userEmail": session.user.email,
             "order": orderConfig[orders[i]].name,
             "price": orderConfig[orders[i]].price,
             "status": "Pendente"
